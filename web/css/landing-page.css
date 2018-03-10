@@ -48,3 +48,12 @@ header.signin h1 {
   }
 }
 
+.display {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.display .display-header {
+  padding-top: 1rem;
+}
+

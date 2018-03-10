@@ -3,7 +3,7 @@
 
 	<head>
 	  <meta charset="utf-8">
-	  <meta name="viewport" content="width=device-width, initail-scale=1,shrink-to-fit=no">
+	  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
 	  <meta name="description" content="Canvas Progress Web">
 	  <meta name="author" content="Tracy Wong">
 
@@ -16,6 +16,15 @@
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+
+    <script src="vendor/radialprogress/d3.min.js"></script>
+
+    <script src="vendor/radialprogress/vizuly_core.min.js"></script>
+	<script src="vendor/radialprogress/vizuly_radialprogress.min.js"></script>
+
+	<script src="radialprogress_test.js"></script>
 
     <!-- Custom styles -->
     <link href="css/landing-page.css" rel="stylesheet">
@@ -48,5 +57,80 @@
           </div>
 		</header>
 
+		<!-- Display -->
+		<section class="display bg-light text-center">
+		  <div class="container">
+		  	<div class="row">
+			  <div class="display-header col-xl-9 mx-auto">
+			  	<h1 class="mb-5">Courses you are registered in</h1>
+			  </div>
+			   	<div class="col-lg-4">
+			      <div class="display-item mx auto">
+			  	  <!-- Place Holder-->
+			  	    <h3>Education</h3>
+			  	    <p class="lead mb-0">CourseID #1</p>
+			  	    <div class="display-progress">
+			  	    	<div id="div1" class="radial_container"></div>
+			  	    </div>
+			  	</div>
+			   </div>
+			   <div class="col-lg-4">
+			      <div class="display-item mx auto">
+			  	  <!-- Place Holder-->
+			  	    <h3>Education</h3>
+			  	    <p class="lead mb-0">CourseID #2</p>
+			  	    <div class="display-progress">
+			  	    	<div id="div2" class="radial_container"></div>
+			  	    </div>
+			      </div>
+
+			   </div>
+			   <div class="col-lg-4">
+			     <div class="display-item mx auto">
+			  	  <!-- Place Holder-->
+			  	   <h3>Education</h3>
+			  	   <p class="lead mb-0">CourseID #3</p>
+			  	   <div class="display-progress">
+			  	    	<div id="div3" class="radial_container center-block"></div>
+			  	    </div>
+			     </div>
+			   </div>
+	        </div>
+	      </div>
+	    </section> 
+
+
+	    <script>
+    //Once the document is ready we set javascript and page settings
+    var screenWidth;
+    var screenHeight = 600;
+
+    $(document).ready(function () {
+
+        var rect;
+        if (self==top) {
+            rect = document.body.getBoundingClientRect();
+        }
+        else {
+            rect =  parent.document.body.getBoundingClientRect();
+        }
+
+        //Set display size based on window size.
+        screenWidth = (rect.width < 960) ? Math.round(rect.width*.95) : Math.round((rect.width - 210) *.95)
+
+        // Set the size of our container element.
+        viz_container = d3.selectAll("#viz_container")
+                .style("width", screenWidth + "px")
+                .style("height", "600px");
+
+        initialize(screenWidth, screenHeight);
+
+
+    });
+
+</script> 
+
+
 	</body>
 </html>
+
