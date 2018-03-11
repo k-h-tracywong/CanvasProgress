@@ -54,9 +54,9 @@ function initialize(screenWidth, screenHeight) {
     divs=[div1,div2,div3];
 
     //Here we create our three radial progress components by passing in a parent DOM element (our div tags)
-    viz1 = vizuly.viz.radial_progress(document.getElementById("div1"));
-    viz2 = vizuly.viz.radial_progress(document.getElementById("div2"));
-    viz3 = vizuly.viz.radial_progress(document.getElementById("div3"));
+    viz1 = vizuly.viz.radial_progress(document.getElementById("#div1"));
+    viz2 = vizuly.viz.radial_progress(document.getElementById("#div2"));
+    viz3 = vizuly.viz.radial_progress(document.getElementById("#div3"));
     //Store the vizs in an array for easy access
     vizs=[viz1,viz2,viz3];
 
@@ -130,8 +130,7 @@ function onClick(viz,d,i) {
     var modal = document.getElementById('myModal');
     // btn.onclick = function() {
     modal.style.display = "block";
-    // }
-    //TODO
+
 }
 
 //---------------------------------------------------------
