@@ -26,6 +26,9 @@
 
 	<script src="radialprogress_test.js"></script>
 
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     <!-- Custom styles -->
     <link href="css/landing-page.css" rel="stylesheet">
 
@@ -62,13 +65,13 @@
 		  <div class="container">
 		  	<div class="row">
 			  <div class="display-header col-xl-9 mx-auto">
-			  	<h1 class="mb-5">Courses you are registered in</h1>
+			  	<h1>Courses you are registered in</h1>
 			  </div>
 			   	<div class="col-lg-4">
 			      <div class="display-item mx auto">
 			  	  <!-- Place Holder-->
 			  	    <h3>Education</h3>
-			  	    <p class="lead mb-0">CourseID #1</p>
+			  	    <p class="lead">CourseID #1</p>
 			  	    <div class="display-progress">
 			  	    	<div id="div1" class="radial_container"></div>
 			  	    </div>
@@ -78,7 +81,7 @@
 			      <div class="display-item mx auto">
 			  	  <!-- Place Holder-->
 			  	    <h3>Education</h3>
-			  	    <p class="lead mb-0">CourseID #2</p>
+			  	    <p class="lead">CourseID #2</p>
 			  	    <div class="display-progress">
 			  	    	<div id="div2" class="radial_container"></div>
 			  	    </div>
@@ -89,47 +92,79 @@
 			     <div class="display-item mx auto">
 			  	  <!-- Place Holder-->
 			  	   <h3>Education</h3>
-			  	   <p class="lead mb-0">CourseID #3</p>
+			  	   <p class="lead">CourseID #3</p>
 			  	   <div class="display-progress">
 			  	    	<div id="div3" class="radial_container center-block"></div>
+  						<div class="text-center">
+  							
+  						</div>
 			  	    </div>
 			     </div>
 			   </div>
 	        </div>
 	      </div>
-	    </section> 
+	    </section> 	
+
+	    <!-- Info Modal -->
+	      <div id="myModal" class="modal" role="dialog">
+	      	<div class="modal-dialog">
+	      		<div class="modal-content">
+	      			<div class="modal-header">
+	      				<h4 class="modal-title">Education - CourseID#1</h4>
+	      				<span class="close" data-dismiss="modal">&times;</span>
+	      			</div>
+	      			<div class="modal-body">
+	      				<p></p>
+	      				<h2>132</h2 class="lead">people are registered</p>
+	      				<h2>100</h2 class="lead">completed the course</p>
+	      				<h2>65%</h2 class="lead">is as class average</p>
+	      				<h2>73%</h2 class="lead">is your grade</p>	
+	      				<center> You are ranked <span style="font-size: 30pt;"> #24 </span> in the class</center>
+	      			</div>
+	      		</div>
+	      	</div>
+	      </div>
+
 
 
 	    <script>
-    //Once the document is ready we set javascript and page settings
-    var screenWidth;
-    var screenHeight = 600;
+		    //Once the document is ready we set javascript and page settings
+		    var screenWidth;
+		    var screenHeight = 600;
 
-    $(document).ready(function () {
+		    $(document).ready(function () {
 
-        var rect;
-        if (self==top) {
-            rect = document.body.getBoundingClientRect();
-        }
-        else {
-            rect =  parent.document.body.getBoundingClientRect();
-        }
+		        var rect;
+		        if (self==top) {
+		            rect = document.body.getBoundingClientRect();
+		        }
+		        else {
+		            rect =  parent.document.body.getBoundingClientRect();
+		        }
 
-        //Set display size based on window size.
-        screenWidth = (rect.width < 960) ? Math.round(rect.width*.95) : Math.round((rect.width - 210) *.95)
+		        //Set display size based on window size.
+		        screenWidth = (rect.width < 960) ? Math.round(rect.width*.95) : Math.round((rect.width - 210) *.95)
 
-        // Set the size of our container element.
-        viz_container = d3.selectAll("#viz_container")
-                .style("width", screenWidth + "px")
-                .style("height", "600px");
+		        // Set the size of our container element.
+		        viz_container = d3.selectAll("#viz_container")
+		                .style("width", screenWidth + "px")
+		                .style("height", "600px");
 
-        initialize(screenWidth, screenHeight);
+		        initialize(screenWidth, screenHeight);
 
 
-    });
+		    });
 
-</script> 
+		</script> 
 
+		<script>
+			var modal = document.getElementById('myModal');
+			var span = document.getElementsByClassName("close")[0];
+
+			span.onclick = function() {
+				modal.style.display = "none";
+			}
+		</script>
 
 	</body>
 </html>

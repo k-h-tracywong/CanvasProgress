@@ -55,5 +55,26 @@ header.signin h1 {
 
 .display .display-header {
   padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.modal {
+  position: fixed;
+  background-color: #16191c;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow:auto;
+}
+
+.modal .modal-header {
+  padding: 2px 20px;
+}
+
+.modal .modal-body {
+  padding-top: 1rem;
+  padding: 2px 20px;
+  padding-bottom: 3rem;
 }
 
