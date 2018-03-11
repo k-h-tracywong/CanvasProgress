@@ -1,5 +1,7 @@
 import pandas as pd
 import json
+import pickle
+
 class CourseForms:
 	def __init__(self):
 		self.df_ = df = pd.read_csv('data/CNPC_1401-1509_DI_v1_1_2016-03-01.csv')
@@ -51,3 +53,16 @@ class CourseForms:
 
 		return {'course_id_DI': courseID, 'userid_DI': userID, 'totalRegistered': totalRegistered, 
 		'averageGrade': averageGrade, 'grade': grade, 'completed_%': completed, 'rank': rank}
+
+	def getRecommendation(self, userID):
+		top_10 = pickle.load(open("pickle/top_10.bin", "rb"))
+		result = []
+
+		for courseRank in top_10[userID]:
+			df = self.df_.query('course_id_DI == ' + str(courseRank[0]))
+			json = {}
+			json['course_id_DI'] = courseRank[0]
+			json['discipline'] = df['discipline'].iloc[0]
+			result.append(json)
+			
+		return result

@@ -14,7 +14,12 @@ def courses():
 
 @app.route('/coursestat', methods=['GET'])
 def coursestat():
-    return jsonify({'coursestat': courseForms.retrieveCourseStatByCourseIDAndUserID(str(request.args.get('courseID')), str(request.args.get('userID')))})
+	return jsonify({'coursestat': courseForms.retrieveCourseStatByCourseIDAndUserID(str(request.args.get('courseID')), str(request.args.get('userID')))})
+
+@app.route('/recommendation', methods=['GET'])
+def recommend():
+	# print(request.args.get('userID'))
+	return jsonify({'recommendation': courseForms.getRecommendation(int(request.args.get('userID')))})
 
 if __name__ == '__main__':
     app.run(debug=True)
