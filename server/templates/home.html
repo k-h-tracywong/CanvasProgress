@@ -1,5 +1,140 @@
+<!doctype html>
 <html>
-<body>
-	<h1>hi</h1>
-</body>
+
+	<head>
+	  <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1,shrink-to-fit=no">
+	  <meta name="description" content="Canvas Progress Web">
+	  <meta name="author" content="Tracy Wong">
+
+	  <title>Canvas Progress Landing Page</title>
+
+	<!-- Bootstrap core CSS -->
+    <link href="{{ url_for('static',filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+    <!-- Custom fonts -->
+    <link href="{{ url_for('static',filename='vendor/font-awesome/css/font-awesome.min.css') }}" rel="stylesheet" type="text/css">
+    <link href="{{ url_for('static',filename='vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+    <script src="{{ url_for('static',filename='vendor/jquery/jquery.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='vendor/radialprogress/d3.min.js') }}"></script>
+
+    <script src="{{ url_for('static',filename='vendor/radialprogress/vizuly_core.min.js') }}"></script>
+	<script src="{{ url_for('static',filename='vendor/radialprogress/vizuly_radialprogress.min.js') }}"></script>
+
+	<script src="{{ url_for('static',filename='radialprogress_test.js') }}"></script>
+
+	<script src="{{ url_for('static',filename='js/request.js') }}"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Custom styles -->
+    <link href="{{ url_for('static',filename='css/landing-page.css') }}" rel="stylesheet">
+
+	</head>
+
+	<body>
+
+		<!-- Sign In -->
+		<header class="signin text-white text-center">
+		  <div class="overlay"></div>
+		  <div class="container">
+			<div class="row">
+			  <div class="col-xl-9 mx-auto">
+			  	<h1 class="mb-5">Enter your User ID</h1>
+			  </div>
+			  <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+			  	<!-- <form> -->
+			  	  <div class="form-row">
+			  	    <div class="col-12 col-md-9 mb-2 mb-md-0">
+                      <input id="userID-input" type="text" class="form-control form-control-lg">
+                    </div>                
+			  	    <div class="col-12 col-md-3">
+                      <button class="btn btn-block btn-lg btn-primary" onclick="displayCourses()">ENTER</button>
+                    </div>
+                  </div>  
+                <!-- </form> -->
+              </div>
+            </div>
+          </div>
+		</header>
+
+		<!-- Display -->
+		<section class="display bg-light text-center">
+		  <div class="container">
+		  	<div class="row">
+			  <div class="display-header col-xl-9 mx-auto">
+			  	<h1>Courses you are registered in</h1>
+			  </div>
+			  <div class="row" id="courses-radial" style="width:100%"></div>
+	        </div>
+	      </div>
+	    </section> 	
+
+	    <!-- Info Modal -->
+	      <div id="myModal" class="modal" role="dialog">
+	      	<div class="modal-dialog">
+	      		<div class="modal-content">
+	      			<div class="modal-header">
+	      				<h4 class="modal-title" id="description">Education - CourseID# 1</h4>
+	      				<span class="close" data-dismiss="modal">&times;</span>
+	      			</div>
+	      			<div class="modal-body">
+	      				<p></p>
+	      				<h2 id="total-registered">132</h2><p class="lead">people are registered</p>
+	      				<h2 id="completed-percent">100%</h2><p class="lead">completed the course</p>
+	      				<h2 id="class-average">65%</h2><p class="lead">is as class average</p>
+	      				<h2 id="grade">73%</h2><p class="lead">is your grade</p>	
+	      				<center> You are ranked <span style="font-size: 30pt;" id="rank"> #24 </span> in the class</center>
+	      			</div>
+	      		</div>
+	      	</div>
+	      </div>
+
+
+
+	    <script>
+		    //Once the document is ready we set javascript and page settings
+		    var screenWidth;
+		    var screenHeight = 600;
+
+		    $(document).ready(function () {
+
+		        var rect;
+		        if (self==top) {
+		            rect = document.body.getBoundingClientRect();
+		        }
+		        else {
+		            rect =  parent.document.body.getBoundingClientRect();
+		        }
+
+		        //Set display size based on window size.
+		        screenWidth = (rect.width < 960) ? Math.round(rect.width*.95) : Math.round((rect.width - 210) *.95)
+
+		        // Set the size of our container element.
+		        viz_container = d3.selectAll("#viz_container")
+		                .style("width", screenWidth + "px")
+		                .style("height", "600px");
+
+		        initialize(screenWidth, screenHeight);
+
+
+		    });
+
+		</script> 
+
+		<script>
+			// console.log('hi');
+			var modal = document.getElementById('myModal');
+			var span = document.getElementsByClassName("close")[0];
+
+			span.onclick = function() {
+				modal.style.display = "none";
+			}
+		</script>
+
+	</body>
 </html>
+

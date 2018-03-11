@@ -50,9 +50,10 @@ class CourseForms:
 
 		df2 = df[df['grade'] < grade]
 		rank = totalRegistered - df2.shape[0]
+		discipline = df1['discipline'].iloc[0]
 
 		return {'course_id_DI': courseID, 'userid_DI': userID, 'totalRegistered': totalRegistered, 
-		'averageGrade': averageGrade, 'grade': grade, 'completed_%': completed, 'rank': rank}
+		'averageGrade': averageGrade, 'grade': grade, 'completed_%': completed, 'rank': rank, 'discipline': discipline}
 
 	def getRecommendation(self, userID):
 		top_10 = pickle.load(open("pickle/top_10.bin", "rb"))

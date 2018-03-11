@@ -1,0 +1,80 @@
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+}
+
+header.signin {
+  position: relative;
+  background-color: #343a40;
+  background: url("../img/architecture.jpg") no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  padding-top: 8rem;
+  padding-bottom: 8rem;
+}
+
+header.signin .overlay {
+  position: absolute;
+  background-color: #16191c;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.3;
+}
+
+header.signin h1 {
+  font-size: 2rem;
+}
+
+@media (min-width: 768px) {
+  header.signin {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
+  header.signin h1 {
+    font-size: 3rem;
+  }
+}
+
+.display {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.display .display-header {
+  padding-top: 1rem;
+  padding-bottom: 3rem;
+}
+
+.modal {
+  position: fixed;
+  background-color: #16191c;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  overflow:auto;
+}
+
+.modal .modal-header {
+  padding: 2px 20px;
+}
+
+.modal .modal-body {
+  padding-top: 1rem;
+  padding: 2px 20px;
+  padding-bottom: 3rem;
+}
+
