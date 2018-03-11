@@ -58,7 +58,7 @@ function populateRecommendation(responseText) {
 	var html = '';
     recommendationJson.forEach(function(recommendation, i) {
         var discipline = recommendation['discipline'];
-        var rating = recommendation['rating'];
+        var rating = Math.round( Number(recommendation['rating']) * 10 ) / 10 + '%';
         var courseID = recommendation['course_id_DI'];
         var colorClass = getColorFromDiscipline(discipline);
         var radial = '<div class="d-inline-block p-3 text-white ' + colorClass + '">CourseID #' + courseID + '<span style="display: block;">' + discipline + '</span><span style="display: block;">' + rating + '</span></div>'
@@ -71,7 +71,7 @@ function getColorFromDiscipline(discipline) {
 	switch(discipline) {
     case 'Business and Management':
         return 'bg-business';
-    case 'Computer Sccience':
+    case 'Computer Science':
         return 'bg-computer';
     case 'Education':
         return 'bg-education';
