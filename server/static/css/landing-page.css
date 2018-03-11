@@ -134,6 +134,46 @@ div.d-inline-block {
   margin-left: 2px !important;
 }
 
+.bg-business {
+  background-color: #086788 !important;
+}
+
+.bg-computer {
+  background-color: #F0C808 !important;
+}
+
+.bg-education {
+  background-color: #6A9CED !important;
+}
+
+.bg-humanities {
+  background-color: #3F2F8E !important;
+}
+
+.bg-interdisciplinary {
+  background-color: #F7CD33 !important;
+}
+
+.bg-math {
+  background-color: #E06D50 !important;
+}
+
+.bg-medical {
+  background-color: #605C5C !important;
+}
+
+.bg-physical {
+  background-color: #023436 !important;
+}
+
+.bg-applied {
+  background-color: #086788 !important;
+}
+
+.bg-social {
+  background-color: #1E1B18 !important;
+}
+
 
 
 

@@ -62,6 +62,7 @@ class CourseForms:
 		for courseRank in top_10[userID]:
 			df = self.df_.query('course_id_DI == ' + str(courseRank[0]))
 			json = {}
+			json['rating'] = courseRank[1]
 			json['course_id_DI'] = courseRank[0]
 			json['discipline'] = df['discipline'].iloc[0]
 			result.append(json)

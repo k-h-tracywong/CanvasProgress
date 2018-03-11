@@ -42,11 +42,12 @@ function updateModal(responseText) {
 	var json = JSON.parse(responseText);
 	var courseStatJson = json['coursestat'];
 	console.log(courseStatJson);
-	document.getElementById('description').innerHTML = courseStatJson['discipline'] + " - CourseID #" + courseStatJson['course_id_DI'];
+	console.log(courseStatJson['discipline'] + " - CourseID #" + courseStatJson['course_id_DI']);
+	document.getElementById('description').innerHTML = courseStatJson['discipline'];
 	document.getElementById('total-registered').innerHTML = courseStatJson['totalRegistered'];
 	document.getElementById('completed-percent').innerHTML = Math.round( Number(courseStatJson['completed_%']) * 100 * 10 ) / 10 + '%';
 	document.getElementById('class-average').innerHTML = Math.round( Number(courseStatJson['averageGrade']) * 100 * 10 ) / 10 + '%';
-	document.getElementById('grade').innerHTML = courseStatJson['grade'];
+	document.getElementById('grade').innerHTML = Math.round( Number(courseStatJson['grade']) * 100 * 10 ) / 10 + '%';
 	document.getElementById('rank').innerHTML = courseStatJson['rank'];
 }
 
@@ -57,10 +58,38 @@ function populateRecommendation(responseText) {
 	var html = '';
     recommendationJson.forEach(function(recommendation, i) {
         var discipline = recommendation['discipline'];
+        var rating = recommendation['rating'];
         var courseID = recommendation['course_id_DI'];
-        var radial = '<div class="d-inline-block p-3 bg-primary text-white">CourseID #' + courseID + '</div>'
+        var colorClass = getColorFromDiscipline(discipline);
+        var radial = '<div class="d-inline-block p-3 text-white ' + colorClass + '">CourseID #' + courseID + '<span style="display: block;">' + discipline + '</span><span style="display: block;">' + rating + '</span></div>'
         html += radial;
     });
     document.getElementById('recommendation-list').innerHTML = html;
 }
 
+function getColorFromDiscipline(discipline) {
+	switch(discipline) {
+    case 'Business and Management':
+        return 'bg-business';
+    case 'Computer Sccience':
+        return 'bg-computer';
+    case 'Education':
+        return 'bg-education';
+    case 'Humanities':
+        return 'bg-humanities';
+ 	case 'Interdisciplinary and Other':
+        return 'bg-interdisciplinary';
+    case 'Mathematics & Statistics':
+        return 'bg-math';
+    case 'Medical Pre-Medical':
+        return 'bg-medical';
+    case 'Physical Sciences':
+        return 'bg-physical';
+    case 'Professions and Applied Sciences':
+        return 'bg-applied';
+    case 'Social Sciences':
+        return 'bg-social';
+    default:
+        return '';
+	}
+}
