@@ -69,12 +69,71 @@ header.signin h1 {
 }
 
 .modal .modal-header {
-  padding: 2px 20px;
+  color: #ffffff;
+  background-color: #2158b2;
+  border-color: #ffffff;
+  height:50px;
+  margin-top: 20px;
+  padding: 5px 20px;
 }
 
 .modal .modal-body {
+  color: #ffffff;
+  background-color: #2158b2;
   padding-top: 1rem;
   padding: 2px 20px;
   padding-bottom: 3rem;
 }
+
+.modal .modal-body .btn {
+  height: 70px;
+  width: 70px;
+  border-radius: 50%;
+  padding-top: 18px;
+  padding-bottom: 18px;
+  font-weight: bold;
+  font-size: 20px;
+  text-align: center;
+  margin: auto;
+}
+
+#circle {
+  width: 100px;
+  height: 100px;
+  background: light;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+}
+
+.numDisplay {
+  position: absolute;
+  top: 50%;
+  left:50%;
+
+}
+
+.recommendation {
+  padding-top: 7rem;
+  padding-bottom: 7rem;
+}
+
+.recommendation .recommendation-header{
+  padding-bottom: 4px;
+}
+
+.recommendation #recommendation-list{
+  margin-left: auto;
+  margin-right: auto;
+  width:75%;
+  padding-top: 4px;
+}
+
+div.d-inline-block {
+  margin-bottom: 2px !important;
+  margin-left: 2px !important;
+}
+
+
+
 

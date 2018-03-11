@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 
@@ -33,9 +34,9 @@
     <!-- Custom styles -->
     <link href="{{ url_for('static',filename='css/landing-page.css') }}" rel="stylesheet">
 
-	</head>
+		</head>
 
-	<body>
+		<body>
 
 		<!-- Sign In -->
 		<header class="signin text-white text-center">
@@ -52,7 +53,7 @@
                       <input id="userID-input" type="text" class="form-control form-control-lg">
                     </div>                
 			  	    <div class="col-12 col-md-3">
-                      <button class="btn btn-block btn-lg btn-primary" onclick="displayCourses()">ENTER</button>
+                      <button class="btn btn-block btn-lg btn-primary" onclick="displayCoursesAndRecommendation()">ENTER</button>
                     </div>
                   </div>  
                 <!-- </form> -->
@@ -83,15 +84,41 @@
 	      			</div>
 	      			<div class="modal-body">
 	      				<p></p>
-	      				<h2 id="total-registered">132</h2><p class="lead">people are registered</p>
-	      				<h2 id="completed-percent">100%</h2><p class="lead">completed the course</p>
-	      				<h2 id="class-average">65%</h2><p class="lead">is as class average</p>
-	      				<h2 id="grade">73%</h2><p class="lead">is your grade</p>	
+	      				<div class="btn btn-sm btn-light"id="total-registered">132</div class="lead"> people are registered </br>
+	      				<p></p>
+	      				<div class="btn btn-sm btn-light"id="completed-percent">100%</div class="lead"> completed the course </br>
+	      				<p></p>
+	      				<div class="btn btn-sm btn-light"id="class-average">65%</div class="lead"> as class average </br>
+	      				<p></p>
+	      				<div class="btn btn-sm btn-light"id="grade">73%</div class="lead"> is your grade </br>
 	      				<center> You are ranked <span style="font-size: 30pt;" id="rank"> #24 </span> in the class</center>
 	      			</div>
 	      		</div>
 	      	</div>
 	      </div>
+
+
+	    <!-- Recommendation -->
+	    <section class="recommendation bg-info text-center">
+	      	<div class="conatiner">
+	      		<div class="row">
+		      		<div class="recommendation-header col-xl-12 mx-xl-12">
+				  		<h1>Courses you may also like</h1>
+				  	</div>
+				  	<div id="recommendation-list">
+					  	<!-- <div class="d-inline-block p-3 bg-primary text-white">Rec#1123434235</div> 
+					  	<div class="d-inline-block p-3 bg-primary text-white">Rec#2affsfsfwfgfsfsdfsafasfsdfs</div>
+						<div class="d-inline-block p-3 bg-dark text-white">Rec#2affsfsfwfgfsfsdfsafasfsdfs</div>
+						<div class="d-inline-block p-3 bg-primary text-white">Rec#3</div>
+						<div class="d-inline-block p-3 bg-dark text-white">Pec#4fasfsfsfasffsfsa</div>
+						<div class="d-inline-block p-3 bg-warning text-white">4fasfsfsfasffsfsa#3</div>
+						<div class="d-inline-block p-3 bg-primary text-white">Rec4fasfsfsfasffsfsa#3</div>
+						<div class="d-inline-block p-3 bg-dark text-white">Re4fasfsfsfasffsfsac#3</div>
+						<div class="d-inline-block p-3 bg-warning text-white">Re4fasfsfsfasffsfsac#3</div> -->
+					</div>
+				</div>
+			</div>
+		</section>
 
 
 

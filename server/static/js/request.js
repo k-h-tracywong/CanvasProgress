@@ -1,6 +1,6 @@
 var userID;
 
-function displayCourses() {
+function displayCoursesAndRecommendation() {
 	userID = document.getElementById("userID-input").value;
 	var xmlHttp = new XMLHttpRequest();
     xmlHttp.onreadystatechange = function() {
@@ -11,6 +11,16 @@ function displayCourses() {
     };
     xmlHttp.open("GET", "courses?userID=" + userID, true);
     xmlHttp.send();
+
+    var xmlHttp1 = new XMLHttpRequest();
+    xmlHttp1.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            populateRecommendation(this.responseText);
+       	}
+    };
+    xmlHttp1.open("GET", "recommendation?userID=" + userID, true);
+    xmlHttp1.send();
 }
 
 function displayModal(courseID) {
@@ -38,5 +48,19 @@ function updateModal(responseText) {
 	document.getElementById('class-average').innerHTML = Math.round( Number(courseStatJson['averageGrade']) * 100 * 10 ) / 10 + '%';
 	document.getElementById('grade').innerHTML = courseStatJson['grade'];
 	document.getElementById('rank').innerHTML = courseStatJson['rank'];
+}
+
+function populateRecommendation(responseText) {
+	var json = JSON.parse(responseText);
+	var recommendationJson = json['recommendation'];
+	console.log(recommendationJson);
+	var html = '';
+    recommendationJson.forEach(function(recommendation, i) {
+        var discipline = recommendation['discipline'];
+        var courseID = recommendation['course_id_DI'];
+        var radial = '<div class="d-inline-block p-3 bg-primary text-white">CourseID #' + courseID + '</div>'
+        html += radial;
+    });
+    document.getElementById('recommendation-list').innerHTML = html;
 }
 
