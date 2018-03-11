@@ -127,7 +127,11 @@ function onMouseOut(viz,d,i) {
 }
 
 function onClick(viz,d,i) {
-    //We can capture click events and respond to them
+    var modal = document.getElementById('myModal');
+    // btn.onclick = function() {
+    modal.style.display = "block";
+    // }
+    //TODO
 }
 
 //---------------------------------------------------------
